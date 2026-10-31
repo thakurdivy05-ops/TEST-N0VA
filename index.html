@@ -1,0 +1,1261 @@
+{% extends "base.html" %}
+
+{% block title %}
+TEST NOVA - Online Test Platform
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================================================
+     HERO SECTION
+================================================== -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-75">
+
+            <!-- HERO CONTENT -->
+
+            <div class="col-lg-7">
+
+                <span class="badge hero-badge mb-3">
+
+                    <i class="bi bi-stars me-1"></i>
+
+                    Smart Online Testing Platform
+
+                </span>
+
+
+                <h1 class="display-3 fw-bold hero-title">
+
+                    Prepare Smarter.
+                    <span>Test Better.</span>
+
+                </h1>
+
+
+                <p class="lead text-secondary mt-4 mb-4">
+
+                    Take online tests, improve your knowledge,
+                    and track your performance with
+                    <strong>TEST NOVA</strong>.
+
+                </p>
+
+
+                <!-- ACTION BUTTONS -->
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    {% if session.get("role") == "student" %}
+
+                        <a
+                            href="{{ url_for('student_dashboard') }}"
+                            class="btn btn-primary btn-lg px-4"
+                        >
+
+                            <i class="bi bi-speedometer2 me-2"></i>
+
+                            Go to Dashboard
+
+                        </a>
+
+
+                    {% elif session.get("role") == "teacher" %}
+
+                        <a
+                            href="{{ url_for('teacher_dashboard') }}"
+                            class="btn btn-primary btn-lg px-4"
+                        >
+
+                            <i class="bi bi-speedometer2 me-2"></i>
+
+                            Teacher Dashboard
+
+                        </a>
+
+
+                    {% else %}
+
+                        <a
+                            href="{{ url_for('student_register') }}"
+                            class="btn btn-primary btn-lg px-4"
+                        >
+
+                            <i class="bi bi-person-plus-fill me-2"></i>
+
+                            Get Started
+
+                        </a>
+
+
+                        <a
+                            href="{{ url_for('teacher_login') }}"
+                            class="btn btn-outline-primary btn-lg px-4"
+                        >
+
+                            <i class="bi bi-person-badge-fill me-2"></i>
+
+                            Teacher Login
+
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- FEATURES -->
+
+                <div class="hero-features mt-5">
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Timed Tests
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Instant Results
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Performance Tracking
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO TEST PREVIEW -->
+
+            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                <div class="hero-card">
+
+                    <div class="hero-card-header">
+
+                        <div>
+
+                            <small class="text-secondary">
+
+                                TEST NOVA
+
+                            </small>
+
+                            <h5 class="mb-0">
+
+                                Today's Challenge
+
+                            </h5>
+
+                        </div>
+
+                        <span class="badge bg-success">
+
+                            <i class="bi bi-circle-fill me-1"
+                               style="font-size:6px;">
+                            </i>
+
+                            Active
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="question-preview mt-4">
+
+                        <div class="d-flex justify-content-between">
+
+                            <span class="small text-secondary">
+
+                                Question 01 / 20
+
+                            </span>
+
+                            <span class="small text-primary fw-semibold">
+
+                                1 Mark
+
+                            </span>
+
+                        </div>
+
+
+                        <h5 class="mt-3">
+
+                            Which language is used to build
+                            the backend of TEST NOVA?
+
+                        </h5>
+
+
+                        <div class="preview-option">
+
+                            <span>A</span>
+
+                            Python
+
+                        </div>
+
+
+                        <div class="preview-option">
+
+                            <span>B</span>
+
+                            Java
+
+                        </div>
+
+
+                        <div class="preview-option">
+
+                            <span>C</span>
+
+                            C++
+
+                        </div>
+
+
+                        <div class="preview-option">
+
+                            <span>D</span>
+
+                            Ruby
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="d-flex justify-content-between mt-4">
+
+                        <span class="text-secondary small">
+
+                            <i class="bi bi-clock me-1"></i>
+
+                            30 Minutes
+
+                        </span>
+
+
+                        <span class="text-secondary small">
+
+                            <i class="bi bi-award me-1"></i>
+
+                            20 Marks
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     PLATFORM STATISTICS
+================================================== -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-3 col-6 mb-4">
+
+                <div class="stat-card">
+
+                    <i class="bi bi-file-earmark-text"></i>
+
+                    <h2>100+</h2>
+
+                    <p>Practice Tests</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3 col-6 mb-4">
+
+                <div class="stat-card">
+
+                    <i class="bi bi-people"></i>
+
+                    <h2>500+</h2>
+
+                    <p>Students</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3 col-6 mb-4">
+
+                <div class="stat-card">
+
+                    <i class="bi bi-person-workspace"></i>
+
+                    <h2>50+</h2>
+
+                    <p>Teachers</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3 col-6 mb-4">
+
+                <div class="stat-card">
+
+                    <i class="bi bi-graph-up-arrow"></i>
+
+                    <h2>95%</h2>
+
+                    <p>Learning Focus</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CATEGORIES
+================================================== -->
+
+<section
+    id="categories"
+    class="py-5"
+>
+
+    <div class="container py-4">
+
+        <div class="section-heading text-center mb-5">
+
+            <span class="section-label">
+
+                EXPLORE
+
+            </span>
+
+            <h2>
+
+                Test Categories
+
+            </h2>
+
+            <p>
+
+                Practice different subjects and improve
+                your preparation.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- PROGRAMMING -->
+
+            <div class="col-md-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="icon-box">
+
+                        <i class="bi bi-code-slash"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Programming
+
+                    </h4>
+
+                    <p>
+
+                        Practice Python, C, Java and
+                        programming fundamentals.
+
+                    </p>
+
+                    <span class="badge bg-light text-primary">
+
+                        Coding
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPUTER SCIENCE -->
+
+            <div class="col-md-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="icon-box purple">
+
+                        <i class="bi bi-cpu"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Computer Science
+
+                    </h4>
+
+                    <p>
+
+                        Test your knowledge of DBMS,
+                        operating systems and networks.
+
+                    </p>
+
+                    <span class="badge bg-light text-primary">
+
+                        CS
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MATHEMATICS -->
+
+            <div class="col-md-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="icon-box green">
+
+                        <i class="bi bi-calculator"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Mathematics
+
+                    </h4>
+
+                    <p>
+
+                        Improve your mathematical
+                        concepts through practice tests.
+
+                    </p>
+
+                    <span class="badge bg-light text-primary">
+
+                        Maths
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     WHY TEST NOVA
+================================================== -->
+
+<section
+    id="about"
+    class="py-5 bg-light"
+>
+
+    <div class="container py-4">
+
+        <div class="row align-items-center">
+
+            <!-- LEFT -->
+
+            <div class="col-lg-6">
+
+                <span class="section-label">
+
+                    WHY TEST NOVA?
+
+                </span>
+
+
+                <h2 class="display-6 fw-bold mt-2">
+
+                    Everything you need to
+                    test and improve.
+
+                </h2>
+
+
+                <p class="text-secondary mt-3">
+
+                    TEST NOVA provides a simple environment
+                    where students can take online tests while
+                    teachers can create and manage assessments.
+
+                </p>
+
+
+                <!-- BENEFIT 1 -->
+
+                <div class="benefit-item">
+
+                    <i class="bi bi-stopwatch-fill"></i>
+
+                    <div>
+
+                        <h5>
+
+                            Timed Examinations
+
+                        </h5>
+
+                        <p>
+
+                            Practice tests with countdown timers.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BENEFIT 2 -->
+
+                <div class="benefit-item">
+
+                    <i class="bi bi-bar-chart-fill"></i>
+
+                    <div>
+
+                        <h5>
+
+                            Performance Tracking
+
+                        </h5>
+
+                        <p>
+
+                            Review scores and previous results.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BENEFIT 3 -->
+
+                <div class="benefit-item">
+
+                    <i class="bi bi-shield-check"></i>
+
+                    <div>
+
+                        <h5>
+
+                            Secure Accounts
+
+                        </h5>
+
+                        <p>
+
+                            Passwords are securely hashed.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <div class="col-lg-6 mt-5 mt-lg-0">
+
+                <div class="info-panel">
+
+                    <div class="row g-4">
+
+
+                        <div class="col-6">
+
+                            <div class="mini-stat">
+
+                                <i class="bi bi-question-circle"></i>
+
+                                <h4>
+
+                                    MCQ Tests
+
+                                </h4>
+
+                                <p>
+
+                                    Four-option questions
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-6">
+
+                            <div class="mini-stat">
+
+                                <i class="bi bi-clock-history"></i>
+
+                                <h4>
+
+                                    Live Timer
+
+                                </h4>
+
+                                <p>
+
+                                    Countdown testing
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-6">
+
+                            <div class="mini-stat">
+
+                                <i class="bi bi-check2-circle"></i>
+
+                                <h4>
+
+                                    Instant Score
+
+                                </h4>
+
+                                <p>
+
+                                    Automatic evaluation
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-6">
+
+                            <div class="mini-stat">
+
+                                <i class="bi bi-person-check"></i>
+
+                                <h4>
+
+                                    Two Roles
+
+                                </h4>
+
+                                <p>
+
+                                    Students & Teachers
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     STUDENT / TEACHER SECTION
+================================================== -->
+
+<section class="py-5">
+
+    <div class="container py-4">
+
+        <div class="section-heading text-center mb-5">
+
+            <span class="section-label">
+
+                FOR EVERYONE
+
+            </span>
+
+            <h2>
+
+                Built for Students and Teachers
+
+            </h2>
+
+            <p>
+
+                Different tools for different roles,
+                all in one platform.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- STUDENT -->
+
+            <div class="col-lg-6">
+
+                <div class="role-card h-100">
+
+                    <div class="role-icon">
+
+                        <i class="bi bi-mortarboard-fill"></i>
+
+                    </div>
+
+                    <h3>
+
+                        For Students
+
+                    </h3>
+
+                    <p>
+
+                        Take timed tests, submit answers,
+                        receive instant results and monitor
+                        your performance.
+
+                    </p>
+
+
+                    <ul class="list-unstyled mt-4">
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Online MCQ Tests
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Countdown Timer
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Instant Results
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Performance History
+
+                        </li>
+
+                    </ul>
+
+
+                    {% if session.get("role") != "student" %}
+
+                    <a
+                        href="{{ url_for('student_register') }}"
+                        class="btn btn-primary mt-3"
+                    >
+
+                        <i class="bi bi-person-plus me-1"></i>
+
+                        Join as Student
+
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- TEACHER -->
+
+            <div class="col-lg-6">
+
+                <div class="role-card h-100">
+
+                    <div class="role-icon teacher-role-icon">
+
+                        <i class="bi bi-person-workspace"></i>
+
+                    </div>
+
+                    <h3>
+
+                        For Teachers
+
+                    </h3>
+
+                    <p>
+
+                        Create assessments, add questions,
+                        publish tests and monitor student
+                        results from one dashboard.
+
+                    </p>
+
+
+                    <ul class="list-unstyled mt-4">
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Create Tests
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Manage Questions
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Publish Assessments
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            View Student Results
+
+                        </li>
+
+                    </ul>
+
+
+                    {% if session.get("role") != "teacher" %}
+
+                    <a
+                        href="{{ url_for('teacher_register') }}"
+                        class="btn btn-outline-primary mt-3"
+                    >
+
+                        <i class="bi bi-person-plus me-1"></i>
+
+                        Join as Teacher
+
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     HOW IT WORKS
+================================================== -->
+
+<section class="py-5 bg-light">
+
+    <div class="container py-4">
+
+        <div class="section-heading text-center mb-5">
+
+            <span class="section-label">
+
+                SIMPLE PROCESS
+
+            </span>
+
+            <h2>
+
+                How TEST NOVA Works
+
+            </h2>
+
+        </div>
+
+
+        <div class="row text-center">
+
+
+            <div class="col-md-4 mb-4">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+
+                        01
+
+                    </div>
+
+                    <h4>
+
+                        Create an Account
+
+                    </h4>
+
+                    <p>
+
+                        Register as a student or teacher
+                        and access your dashboard.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4 mb-4">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+
+                        02
+
+                    </div>
+
+                    <h4>
+
+                        Take or Create Tests
+
+                    </h4>
+
+                    <p>
+
+                        Students take tests while teachers
+                        create and publish assessments.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4 mb-4">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+
+                        03
+
+                    </div>
+
+                    <h4>
+
+                        Track Results
+
+                    </h4>
+
+                    <p>
+
+                        View scores and monitor performance
+                        after completing tests.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CALL TO ACTION
+================================================== -->
+
+<section id="contact" class="cta-section">
+
+    <div class="container text-center py-5">
+
+        <span class="badge bg-light text-primary mb-3 px-3 py-2">
+
+            START TODAY
+
+        </span>
+
+        <h2 class="fw-bold">
+
+            Ready to Test Your Knowledge?
+
+        </h2>
+
+        <p class="lead">
+
+            Join TEST NOVA and start your online testing journey.
+
+        </p>
+
+
+        {% if not session.get("role") %}
+
+            <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
+
+                <a
+                    href="{{ url_for('student_register') }}"
+                    class="btn btn-warning btn-lg px-4"
+                >
+
+                    <i class="bi bi-person-plus me-1"></i>
+
+                    Register as Student
+
+                </a>
+
+
+                <a
+                    href="{{ url_for('teacher_register') }}"
+                    class="btn btn-outline-light btn-lg px-4"
+                >
+
+                    <i class="bi bi-person-badge me-1"></i>
+
+                    Register as Teacher
+
+                </a>
+
+            </div>
+
+        {% else %}
+
+            <a
+                href="{% if session.get('role') == 'student' %}{{ url_for('student_dashboard') }}{% else %}{{ url_for('teacher_dashboard') }}{% endif %}"
+                class="btn btn-light btn-lg px-4 mt-3"
+            >
+
+                <i class="bi bi-speedometer2 me-1"></i>
+
+                Go to Dashboard
+
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     PAGE-SPECIFIC STYLES
+================================================== -->
+
+<style>
+
+    .role-card {
+
+        padding: 2rem;
+
+        border-radius: 16px;
+
+        background: #ffffff;
+
+        border: 1px solid rgba(0, 0, 0, 0.08);
+
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.06);
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+
+    }
+
+
+    .role-card:hover {
+
+        transform: translateY(-5px);
+
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.10);
+
+    }
+
+
+    .role-icon {
+
+        width: 58px;
+
+        height: 58px;
+
+        border-radius: 14px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: rgba(13, 110, 253, 0.10);
+
+        color: #0d6efd;
+
+        font-size: 1.6rem;
+
+        margin-bottom: 1rem;
+
+    }
+
+
+    .teacher-role-icon {
+
+        background: rgba(25, 135, 84, 0.10);
+
+        color: #198754;
+
+    }
+
+
+    .role-card ul li {
+
+        margin-bottom: 0.75rem;
+
+    }
+
+
+    .role-card ul i {
+
+        color: #198754;
+
+        margin-right: 8px;
+
+    }
+
+
+    .role-card .btn {
+
+        transition:
+            transform 0.15s ease;
+
+    }
+
+
+    .role-card .btn:hover {
+
+        transform: translateY(-1px);
+
+    }
+
+
+    @media (max-width: 767px) {
+
+        .hero-title {
+
+            font-size: 2.5rem;
+
+        }
+
+        .hero-section {
+
+            padding-top: 3rem;
+
+            padding-bottom: 3rem;
+
+        }
+
+    }
+
+</style>
+
+{% endblock %}
